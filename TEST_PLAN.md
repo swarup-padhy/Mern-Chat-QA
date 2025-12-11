@@ -1,43 +1,20 @@
-# Test Plan: Real-Time Chat Application
+# Test Plan: Chat App RC1
 
-## 1. Introduction
-This document outlines the testing strategy for the Real-Time Chat Application. The goal is to ensure the reliability, functionality, and performance of the chat system, authentication, and user management features.
+### 1. The Strategy
+We act like real users. We assume the network is flaky, the users are impatient, and the inputs are messy.
 
-## 2. Scope
-### In Scope
-- **Frontend**: React application behavior, responsiveness, and UI/UX.
-- **Backend API**: Authentication endpoints and user data management.
-- **Real-Time Features**: Socket.io connectivity, message broadcasting, and online status updates.
-- **Data Persistence**: MongoDB data storage and retrieval.
+### 2. What We Test (Scope)
+- **Auth**: Can I get in? Can I get out? Do you stop me if I'm fake?
+- **Chat**: Is it fast? Does it break if I send an image? Do you see what I type?
+- **Resilience**: If I kill the server, does the app freak out or just wait patiently?
 
-### Out of Scope
-- Load testing (for now).
-- Security penetration testing.
+### 3. The Environment
+- **Localhost**: Where the magic happens first.
+- **Network Throttling**: Because 5G isn't everywhere. Tested on "Slow 3G" simulation.
 
-## 3. Test Strategy
+### 4. Pass/Fail Criteria
+- **PASS**: The feature works, looks good, and doesn't throw console errors.
+- **FAIL**: Crash, data loss, or "Undefined is not a function".
 
-### 3.1 Functional Testing
-Verify that each function of the software application operates in conformance with the requirement specification.
-- **Auth Flow**: Signup, Login, Logout.
-- **Chat Flow**: Sending/Receiving messages, History loading.
-- **Profile**: Updating user details.
-
-### 3.2 UI/UX Testing
-Ensure the application is visually consistent and responsive.
-- **Responsiveness**: Mobile vs Desktop views.
-- **Theming**: Verification of theme switching (DaisyUI) and its persistence.
-
-### 3.3 Integration Testing
-Verify the interaction between modules.
-- **Frontend-Backend**: data exchange via Axios.
-- **Socket.io**: Client-Server handshake and event emission.
-
-## 4. Test Environment
-- **Browser**: Chrome (latest), Firefox, Edge.
-- **Device**: Desktop, Mobile (simulated via DevTools).
-- **Network**: Localhost (Development), Simulated Slow 3G (Network throttling).
-
-## 5. Deliverables
-- Test Scenarios (`01_SCENARIOS.md`).
-- Test Cases (`02_TEST_CASES.md`).
-- Bug Reports (`03_BUG_REPORTS.md`).
+### 5. Execution
+See `02_TEST_CASES.md` for the run logs.

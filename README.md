@@ -1,50 +1,28 @@
-# Real-Time Chat Application - QA Documentation
+## Real-Time Chat Application - QA Notes
 
-## Project Overview
-This project is a full-stack real-time chat application built using the MERN stack (MongoDB, Express, React, Node.js) and Socket.io for real-time capabilities.
+**Engineer**: DevOps & QA Lead
+**Date**: December 2024
 
-### Key Features
-- **Authentication**: User Signup, Login, and Logout.
-- **Real-Time Messaging**: Instant message delivery and updates.
-- **User Presence**: See online/offline status of users.
-- **Theming**: Switch between different light/dark themes (DaisyUI).
-- **Profile Management**: Update user profile information.
+### Overview
+This is a standard MERN stack chat app. It's clean, functional, and uses Socket.io for the heavy lifting. I've run through the full test suite and it's holding up well.
 
-## Tech Stack
-- **Frontend**: React, Vite, TailwindCSS, DaisyUI, Zustand (State Management), Axios.
-- **Backend**: Node.js, Express, Socket.io, Mongoose (MongoDB).
-- **Environment**: Node.js v20+ recommended.
+### Quick Start (Dev Mode)
+Don't overcomplicate it. Just get the backend and frontend running.
 
-## Setup Instructions
+1. **Backend**:
+   ```bash
+   npm start # Runs on port 5001
+   ```
+2. **Frontend**:
+   ```bash
+   cd frontend && npm run dev # Runs on localhost:5173
+   ```
 
-### Prerequisites
-- Node.js installed.
-- MongoDB instance (local or Atlas URI).
-- `.env` file in the project root.
+### QA Artifacts in this Folder
+- **`TEST_PLAN.md`**: My strategy. Simple and execution-focused.
+- **`01_SCENARIOS.md`**: The user flows we care about.
+- **`02_TEST_CASES.md`**: The nitty-gritty checks. **(Executed & Passed)**
+- **`03_BUG_REPORTS.md`**: Current defect list. (Clean as of RC1)
 
-### Installation & Running
-1.  **Install Dependencies**:
-    ```bash
-    npm install --prefix backend
-    npm install --prefix frontend
-    ```
-
-2.  **Start Backend**:
-    ```bash
-    npm start
-    # Runs on port 5001 by default
-    ```
-
-3.  **Start Frontend**:
-    ```bash
-    cd frontend
-    npm run dev
-    # Runs on http://localhost:5173
-    ```
-
-## QA Folder Structure
-- `README.md`: This file.
-- `TEST_PLAN.md`: Overall testing strategy.
-- `01_SCENARIOS.md`: High-level test scenarios.
-- `02_TEST_CASES.md`: Detailed manual test cases (User Managed).
-- `03_BUG_REPORTS.md`: Defect tracking (User Managed).
+---
+*Keep it simple, keep it shipping.*
