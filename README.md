@@ -12,7 +12,6 @@ This repository contains the **Manual Testing artifacts** for a full-stack Real-
 ---
 
 ## 2. QA Artifacts
-This folder is structured to mirror a real-world testing cycle:
 
 | File / Folder | Description |
 |--------------|-------------|
