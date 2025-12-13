@@ -44,7 +44,7 @@
 |-------|-------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------|--------|
 | TC-28 | TS-USER-01-01 | 1. Click Profile icon in Navbar                                                                                 | Profile page opens; Displays correct Name and Email (read-only) | Profile page open; Data correct. | PASS |
 | TC-29 | TS-USER-01-02 | 1. On Profile Page<br>2. Click Camera/Edit icon on Avatar<br>3. Select new image | "Profile updated successfully" toast; New avatar displayed | Avatar not updated; internl server error Toast. | FAIL |
-| TC-30 | TS-USER-01-03 | 1. Update avatar in Profile<br>2. Look at Navbar/Sidebar                                                        | New avatar is reflected in Navbar and Sidebar user list | Updates reflected everywhere. | PASS |
+| TC-30 | TS-USER-01-03 | 1. Update avatar in Profile<br>2. Look at Navbar/Sidebar                                                        | New avatar is reflected in Navbar and Sidebar user list | Avatar not updated. | FAIL |
 | TC-31 | TS-USER-01-04 | 1. Try to upload an oversized image (>5MB) OR a non-image file                                                | Error toast handling invalid file | Error toast confirmed. | PASS |
 | TC-32 | TS-SET-01-01 | 1. Click Settings icon in Navbar<br>2. Select "dark" theme                                                      | UI colors change to dark theme instantly | Theme switched to dark. | PASS |
 | TC-33 | TS-SET-01-02 | 1. Click Settings icon in Navbar<br>2. Select "light" theme                                                     | UI colors change to light theme instantly | Theme switched to light. | PASS |
@@ -55,14 +55,14 @@
 
 | TC ID | Scenario ID | Test Steps                                                              | Expected Result                                                          | Actual Result | Status |
 |-------|-------------|-------------------------------------------------------------------------|--------------------------------------------------------------------------|---------------|--------|
-| TC-36 | TS-NET-01-01 | 1. Stop Backend Server (Ctrl+C)<br>2. Try to Login or Send Message      | Error toast: "Network Error" or similar; Application handles it gracefully | Graceful handling observed. | PASS |
-| TC-37 | TS-NET-01-02 | 1. Start Backend Server<br>2. Application should reconnect              | Application functions resume without full page reload (if applicable) | Reconnection successful. | PASS |
+| TC-36 | TS-NET-01-01 | 1. Stop Backend Server (Ctrl+C)<br>2. Try to Login or Send Message      | Error toast: "Network Error" or similar; Application handles it gracefully | Network Error not apper. | FAIL |
+| TC-37 | TS-NET-01-02 | 1. Start Backend Server<br>2. Application should reconnect              | Application functions resume without full page reload | Reconnection after full reload. | FAIL |
 
 ## Edge Cases
 
 | TC ID | Scenario ID | Test Steps                                                              | Expected Result                                                           | Actual Result | Status |
 |-------|-------------|-------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------|--------|
-| TC-38 | TS-EDGE-01 | 1. Signup with a very long name (e.g., 50+ characters)                | UI handles long text (truncation or wrapping) without breaking layout | Layout held; Text wrapped. | PASS |
+| TC-38 | TS-EDGE-01 | 1. Signup with a very long name (e.g., 50+ characters)                | UI handles long text (truncation or wrapping) without breaking layout | Layout break. | FAILL |
 | TC-39 | TS-EDGE-02 | 1. Send message with emojis only "😀😃😄"                             | Message displays emojis correctly | Emojis rendered correctly. | PASS |
-| TC-40 | TS-EDGE-03 | 1. Send a very long single word (without spaces)                      | Message bubble wraps text or breaks the word; does not overflow container | Word wrapped correctly. | PASS |
+| TC-40 | TS-EDGE-03 | 1. Send a very long single word (without spaces)                      | Message bubble wraps text or breaks the word; does not overflow container | Layout break. | FAIL |
 | TC-41 | TS-EDGE-04 | 1. Click quickly multiple times on "Send" button                        | Only one message should be sent (Debouncing or disabled state) | Debounce effective; Single msg. | PASS |
