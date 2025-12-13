@@ -13,7 +13,7 @@ This document outlines the testing strategy for the Release Candidate 1 (RC1) of
 ### 2.2 Out-Scope
 -   Backend API load testing.
 -   Security penetration testing.
--   Code-level unit testing (responsibility of Development Team).
+-   Code-level unit testing.
 
 ## 3. Test Strategy
 ### 3.1 Testing Levels
@@ -33,9 +33,3 @@ This document outlines the testing strategy for the Release Candidate 1 (RC1) of
     -   **Major**: Core feature broken, no workaround.
     -   **Minor**: UI/Cosmetic issue or workaround available.
     -   **Low**: Suggestion / trivial issue.
-
-## 5. Deliverables
--   Test Plan (This document)
--   Test Scenarios & Cases
--   Defect Reports
--   Final Test Summary
