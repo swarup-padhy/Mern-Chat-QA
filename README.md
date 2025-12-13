@@ -6,10 +6,8 @@ This repository contains the **Manual Testing artifacts** for a full-stack Real-
 ### 📌 Project Context & Credits
 * **Application Under Test**: [Fullstack Chat App](https://github.com/burakorkmez/fullstack-chat-app)
 * **Original Developer**: [Burak Orkmez](https://github.com/burakorkmez)
-* **QA Engineer**: swarup
+* **QA Engineer**: Swarup
 * **Testing Scope**: Black Box Testing (Functional, UI, and Resilience)
-
-> **Note**: This project is for **educational and portfolio purposes**. The documentation below reflects a simulated professional QA environment auditing the application for release readiness.
 
 ---
 
