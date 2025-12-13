@@ -8,7 +8,7 @@
 - **TS-AUTH-01-03**: Verify signup fails with empty "Email".
 - **TS-AUTH-01-04**: Verify signup fails with invalid email format (e.g., missing @).
 - **TS-AUTH-01-05**: Verify signup fails with empty "Password".
-- **TS-AUTH-01-06**: Verify signup fails with password less than 6 characters .
+- **TS-AUTH-01-06**: Verify signup fails with password less than 6 characters (if applicable).
 - **TS-AUTH-01-07**: Verify signup fails if email is already registered.
 - **TS-AUTH-01-08**: Verify "Sign user up" button enters loading state/disabled during request.
 

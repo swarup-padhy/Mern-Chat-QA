@@ -13,7 +13,7 @@ This document outlines the testing strategy for the Release Candidate 1 (RC1) of
 ### 2.2 Out-Scope
 -   Backend API load testing.
 -   Security penetration testing.
--   Code-level unit testing .
+-   Code-level unit testing (responsibility of Development Team).
 
 ## 3. Test Strategy
 ### 3.1 Testing Levels
