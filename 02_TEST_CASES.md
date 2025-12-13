@@ -28,21 +28,22 @@
 | TC-17 | TS-CHAT-01-03 | 1. Login as User A<br>2. Do not select any user                                                       | "Welcome" / "No conversation selected" placeholder screen displayed | "Welcome" screen visible. | PASS |
 | TC-18 | TS-CHAT-01-04 | 1. Refresh page<br>2. Observe Sidebar immediately                                                       | Loading skeletons displayed while users are being fetched | Skeletons observed during fetch. | PASS |
 | TC-19 | TS-CHAT-02-01 | 1. Select User B<br>2. Type "Hello world"<br>3. Press Enter or Send button                             | Message appears in the chat bubble immediately, aligned to the right | Message sent; Aligned right. | PASS |
-| TC-20 | TS-CHAT-02-02 | 1. Select User B<br>2. Click Image attachment icon<br>3. Select valid image<br>4. Click Send            | Image message appears in the chat bubble | Image sent and rendered. | PASS |
+| TC-20 | TS-CHAT-02-02 | 1. Select User B<br>2. Click Image attachment icon<br>3. Select valid image<br>4. Click Send            | Image message appears in the chat bubble | Image does NOT send; UI becomes unresponsive for sending. | FAIL |
 | TC-21 | TS-CHAT-02-03 | 1. Select User B<br>2. Leave input empty<br>3. Try to click Send                                       | Send button disabled or action has no effect | Button disabled; No action. | PASS |
 | TC-22 | TS-CHAT-02-04 | 1. Type message "Test"<br>2. Send message | Input field cleared automatically | Input cleared. | PASS |
 | TC-23 | TS-CHAT-03-01 | 1. Open User A (Browser 1) and User B (Browser 2)<br>2. User A sends "Hi"<br>3. Observe User B screen | "Hi" appears instantly in User B's chat window (left aligned) | Received "Hi" instantly; Left aligned. | PASS |
-| TC-24 | TS-CHAT-03-02 | 1. Open User A & User B<br>2. User A sends Image<br>3. Observe User B screen                           | Image appears instantly in User B's chat window | Image received instantly. | PASS |
+| TC-24 | TS-CHAT-03-02 | 1. Open User A & User B<br>2. User A sends Image<br>3. Observe User B screen                           | Image appears instantly in User B's chat window | Image never sent. | FAIL |
 | TC-25 | TS-CHAT-03-03 | 1. Fill chat history to be scrollable<br>2. Receive new message                                         | Chat container auto-scrolls to the newest message at the bottom | Auto-scroll worked. | PASS |
 | TC-26 | TS-CHAT-04-01 | 1. Refresh page<br>2. Click on User B (who has history)                                                 | Previous chat messages load and display correctly | History loaded correctly. | PASS |
 | TC-27 | TS-CHAT-04-02 | 1. Inspect a message bubble                                                                             | Timestamp displayed (e.g., 10:30 PM) | Timestamps visible. | PASS |
+| TC-42 | TS-CHAT-01-05 | 1. Login as User A<br>2. New User B creates account in another window<br>3. Observe User A Sidebar | User B appears in Sidebar immediately without refresh | User B does NOT appear until refresh. | FAIL |
 
 ## User & Settings
 
 | TC ID | Scenario ID | Test Steps                                                                                                      | Expected Result                                                           | Actual Result | Status |
 |-------|-------------|-----------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------|---------------|--------|
 | TC-28 | TS-USER-01-01 | 1. Click Profile icon in Navbar                                                                                 | Profile page opens; Displays correct Name and Email (read-only) | Profile page open; Data correct. | PASS |
-| TC-29 | TS-USER-01-02 | 1. On Profile Page<br>2. Click Camera/Edit icon on Avatar<br>3. Select new image                                | "Profile updated successfully" toast; New avatar displayed | Avatar updated; Toast confirmed. | PASS |
+| TC-29 | TS-USER-01-02 | 1. On Profile Page<br>2. Click Camera/Edit icon on Avatar<br>3. Select new image | "Profile updated successfully" toast; New avatar displayed | Avatar updated; Toast confirmed. | PASS |
 | TC-30 | TS-USER-01-03 | 1. Update avatar in Profile<br>2. Look at Navbar/Sidebar                                                        | New avatar is reflected in Navbar and Sidebar user list | Updates reflected everywhere. | PASS |
 | TC-31 | TS-USER-01-04 | 1. Try to upload an oversized image (>5MB) OR a non-image file                                                | Error toast handling invalid file | Error toast confirmed. | PASS |
 | TC-32 | TS-SET-01-01 | 1. Click Settings icon in Navbar<br>2. Select "dark" theme                                                      | UI colors change to dark theme instantly | Theme switched to dark. | PASS |

@@ -30,6 +30,7 @@
 - **TS-CHAT-01-02**: Verify selecting a user opens the correct chat window.
 - **TS-CHAT-01-03**: Verify "No conversation selected" placeholder is shown initially.
 - **TS-CHAT-01-04**: Verify sidebar loading skeleton appears while fetching users.
+- **TS-CHAT-01-05**: Verify sidebar updates in real-time when a new user joins.
 
 ### TS-CHAT-02: Message Sending
 - **TS-CHAT-02-01**: Verify sending a text message updates the UI immediately.

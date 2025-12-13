@@ -1,12 +1,20 @@
-# 03 - Bug Reports
+# Defect Dashboard
 
-**Status**: Stable Release Candidate 1.0
+**Project**: Real-Time Chat Application
+**Test Cycle**: RC1 Functional Testing
 
-| Bug ID | Description | Severity | Priority | Status |
-|--------|-------------|----------|----------|--------|
-| - | **NO CRITICAL BUGS FOUND** - Ready for Deployment | - | - | Closed |
+## Summary Statistics
+| Total Bugs | Critical | Major | Minor | Status |
+|:----------:|:--------:|:-----:|:-----:|:------:|
+| 3          | 1        | 2     | 0     | **Open** |
+
+## Defect List
+
+| ID | Severity | Title | Status | Link |
+|----|----------|-------|--------|------|
+| **BUG-01** | Critical | **Image Sending Failure & UI Block** | Open | [View Report](./Bug-Reports/BUG-01_Image_Sending_Failure.md) |
+| **BUG-02** | Major | **Profile Picture Update Failure** | Open | [View Report](./Bug-Reports/BUG-02_Profile_Update_Failure.md) |
+| **BUG-03** | Major | **User List Fails to Update in Real-Time** | Open | [View Report](./Bug-Reports/BUG-03_User_List_Update_Failure.md) |
 
 ---
-*Tested on*: Chrome 120, Windows 11.
-*Backend*: Node 20.
-*Date*: 2024-12-09
+*Note: This dashboard tracks issues found during the manual testing phase.*
