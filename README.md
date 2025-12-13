@@ -37,7 +37,7 @@ To verify the reported bugs or execute test cases yourself:
 
 1.  **Clone the Repository**:
     ```bash
-    git clone [https://github.com/burakorkmez/fullstack-chat-app.git](https://github.com/burakorkmez/fullstack-chat-app.git)
+    git clone https://github.com/burakorkmez/fullstack-chat-app.git
     cd fullstack-chat-app
     ```
 
