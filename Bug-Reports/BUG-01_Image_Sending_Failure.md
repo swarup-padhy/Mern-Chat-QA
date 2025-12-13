@@ -28,6 +28,5 @@ When attempting to send an image attachment in a chat, the message fails to send
 
 ## Environment
 -   **URL**: `http://localhost:5173`
--   **Browser**: Chrome v120
+-   **Browser**: Chrome V142.0.7444.176
 -   **OS**: Windows 11
--   **Account**: Standard User
