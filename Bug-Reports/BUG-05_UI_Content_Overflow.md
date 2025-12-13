@@ -29,5 +29,4 @@ The application's user interface does not correctly handle extreme text inputs, 
 
 ## Environment
 -   **URL**: `http://localhost:5173`
--   **Browser**: Chrome v120
--   **OS**: Windows 11
+-   **Browser**: Chrome v142.0.7444.176
