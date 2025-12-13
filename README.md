@@ -22,6 +22,8 @@ This folder is structured to mirror a real-world testing cycle:
 | [**03_BUG_REPORTS.md**](./03_BUG_REPORTS.md) | Central dashboard for tracking identified defects. |
 | [**Bug-Reports/**](./Bug-Reports/) | Individual, detailed bug reports for reported issues. |
 
+---
+
 ## 3. Testing Highlights
 - **Methodology**: Manual Functional Testing.
 - **Key Modules Tested**: Authentication, Real-Time Messaging, Profile Management.
