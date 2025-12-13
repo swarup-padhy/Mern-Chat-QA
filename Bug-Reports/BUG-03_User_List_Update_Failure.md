@@ -24,5 +24,4 @@ When a new user registers an account, other currently logged-in users do not see
 
 ## Environment
 -   **URL**: `http://localhost:5173`
--   **Browser**: Chrome v120 (Testing cross-window sync)
--   **OS**: Windows 11
+-   **Browser**: Chrome v142.0.7444.176 (Testing cross-window sync)
