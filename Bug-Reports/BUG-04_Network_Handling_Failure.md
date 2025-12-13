@@ -26,5 +26,4 @@ The application fails to gracefully handle network interruptions or backend serv
 
 ## Environment
 -   **URL**: `http://localhost:5173`
--   **Browser**: Chrome v120
--   **OS**: Windows 11
+-   **Browser**: Chrome v142.0.7444.176
