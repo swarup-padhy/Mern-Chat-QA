@@ -11,8 +11,8 @@ Users are unable to update their profile picture. The functionality fails with a
 
 ## Steps to Reproduce
 1.  Login to the application.
-2.  Navigate to the **Profile** page via the settings menu.
-3.  Click the **Camera/Edit** icon on the current avatar.
+2.  Navigate to the **Profile** page .
+3.  Click the **Camera** icon on the current avatar.
 4.  Select a new image file from the local machine.
 5.  Observe the UI feedback.
 
@@ -26,5 +26,4 @@ Users are unable to update their profile picture. The functionality fails with a
 
 ## Environment
 -   **URL**: `http://localhost:5173/profile`
--   **Browser**: Chrome v120
--   **OS**: Windows 11
+-   **Browser**: Chrome v142.0.7444.176
