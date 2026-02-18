@@ -1,4 +1,4 @@
-# Real-Time Chat Application - Manual Testing Portfolio
+# Real-Time Chat Application - Manual Testing 
 
 ## 1. Project Overview
 This repository contains the **Manual Testing artifacts** for a full-stack Real-Time Chat Application. The primary objective is to demonstrate QA processes, including test planning, scenario design, test case execution, and bug reporting.
