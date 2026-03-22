@@ -2,7 +2,7 @@
 
 # Real-Time Chat Application — Manual Testing
 
-### *Black Box QA Audit — Functional · UI · Resilience Testing*
+### *Black Box QA Audit — Functional · UI *
 
 <br/>
 
