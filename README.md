@@ -1,140 +1,123 @@
-# Chat Application — Manual Testing Project
+# 🧪 Chat Application — Manual Testing Project
 
-> A structured manual testing engagement covering core functional, security, and real-time requirements of a MERN chat application.
+> A structured manual testing engagement covering functional, security, API, and real-time requirements of a fullstack MERN chat application. **4 real defects discovered — including a Critical security vulnerability.**
 
 ---
 
 ![Test Cases](https://img.shields.io/badge/Test%20Cases-29-brightgreen?style=flat-square)
 ![Passed](https://img.shields.io/badge/Passed-25-success?style=flat-square)
 ![Failed](https://img.shields.io/badge/Failed-4-critical?style=flat-square)
-![Defects](https://img.shields.io/badge/Defects-4%20Open-red?style=flat-square)
+![Defects](https://img.shields.io/badge/Defects%20Found-4%20Open-red?style=flat-square)
 ![Coverage](https://img.shields.io/badge/Requirement%20Coverage-100%25-blue?style=flat-square)
 ![Status](https://img.shields.io/badge/Cycle%20Status-Complete-blueviolet?style=flat-square)
 
 ---
 
-## Project Overview
+## 🐛 Defects Discovered
 
-| Field | Detail |
-| :--- | :--- |
-| **Application** | Fullstack Chat App (MERN Stack + Socket.io) |
-| **Source Code** | [github.com/burakorkmez/fullstack-chat-app](https://github.com/burakorkmez/fullstack-chat-app) |
-| **Testing Type** | Manual — Functional, API, Security, Real-Time |
-| **Tester** | Swarup Padhy |
-| **Environment** | Windows 11 · Chrome · Node.js (Local) · MongoDB |
-| **Tools Used** | Postman · Chrome DevTools · MongoDB Compass · Firefox |
+> These were found through manual exploratory and structured testing — not guesswork.
 
----
-
-## What Was Tested
-
-| Area | Description |
-| :--- | :--- |
-| 🔐 **Authentication** | Signup, Login, Logout, JWT cookie lifecycle, session restore, route protection |
-| 💬 **Messaging** | Text and image sending, chat history loading, message consistency |
-| ⚡ **Real-Time (Socket.io)** | Live message delivery, online/offline presence, socket lifecycle on logout |
-| 🛡️ **Security** | XSS injection, JWT token reuse after logout, duplicate email bypass |
-| 🔌 **API Validation** | Status codes, auth middleware enforcement, malformed request handling |
-| 🪟 **Session Handling** | Multi-tab sync, session persistence after full browser restart |
+| Bug ID | Title | Severity | How It Was Found |
+| :--- | :--- | :--- | :--- |
+| [BUG-001](04-defects/defect-log.md) | Case-variant emails bypass duplicate account check | 🔴 High | Structured test — attempted registration with `USER@test.com` after `user@test.com` existed |
+| [BUG-002](04-defects/defect-log.md) | JWT token remains valid after logout — session not invalidated server-side | 🔴 **Critical** | Exploratory — copied JWT before logout, re-inserted it after, regained full Dashboard access |
+| [BUG-003](04-defects/defect-log.md) | Image messages fail to send in chat | 🔴 High | Structured test — image attachment sent via messaging flow, server returned error |
+| [BUG-004](04-defects/defect-log.md) | WebSocket connection stays open after logout (Zombie Connection) | 🔴 High | Exploratory — monitored Network tab in DevTools before and after logout |
 
 ---
 
-## Defects Discovered
+## 📊 Execution Summary
 
-| Bug ID | Title | Severity | Requirement | Status |
-| :--- | :--- | :--- | :--- | :--- |
-| [BUG-001](04-defects/defect-log.md) | Case-variant emails bypass duplicate account check | 🔴 High | REQ-AUTH-07 | Open |
-| [BUG-002](04-defects/defect-log.md) | JWT token not invalidated on server after logout | 🔴 Critical | REQ-AUTH-05 | Open |
-| [BUG-003](04-defects/defect-log.md) | Image messages fail to send in chat | 🔴 High | REQ-MSG-03 | Open |
-| [BUG-004](04-defects/defect-log.md) | WebSocket stays open after logout (Zombie Connection) | 🔴 High | REQ-TECH-02 | Open |
-
----
-
-## Test Execution Summary
-
-| Status | Count | Coverage |
+| Status | Count | Visual |
 | :--- | :---: | :--- |
-| ✅ Passed | 25 | ████████████████████░░░ 86% |
-| ❌ Failed | 4 | ██░░░░░░░░░░░░░░░░░░░░░ 14% |
-| **Total** | **29** | **100% Executed** |
+| ✅ Passed | 25 | `████████████████████░░░` 86% |
+| ❌ Failed | 4 | `██░░░░░░░░░░░░░░░░░░░░░` 14% |
+| **Total Executed** | **29** | **100%** |
 
 ---
 
-## Repository Structure
+## 🧰 Testing Techniques Applied
 
-```
-chat-app-manual-testing/
-│
-├── README.md
-│
-├── 📁 01-requirements/
-│   └── requirements.md          ← What the system must do (21 requirements)
-│
-├── 📁 02-test-plan/
-│   └── test-plan.md             ← Strategy, scope, risks, environment
-│
-├── 📁 03-test-design/
-│   ├── test-scenarios.md        ← 26 high-level test scenarios
-│   ├── test-cases.md            ← 29 detailed test cases with execution status
-│   └── api-inventory.md         ← All 8 API endpoints mapped to test cases
-│
-├── 📁 04-defects/
-│   └── defect-log.md            ← All 4 defects with steps, evidence, fix notes
-│
-├── 📁 05-rtm/
-│   └── rtm.md                   ← Full REQ → TS → TC → BUG traceability map
-│
-└── 📁 evidence/
-    ├── BUG-001/                  ← MongoDB screenshot: duplicate email records
-    ├── BUG-002/                  ← Session recording: JWT reuse after logout
-    ├── BUG-003/                  ← Screenshot: image send failure in chat
-    └── BUG-004/                  ← Before/After screenshots: zombie WebSocket
-```
+| Technique | Where It Was Used |
+| :--- | :--- |
+| **Boundary Value Analysis** | Password length — verified 5 chars fails, 6 chars passes |
+| **Exploratory Testing** | Discovered BUG-002 (JWT reuse) and BUG-004 (zombie socket) without predefined steps |
+| **Negative Testing** | Wrong passwords, malformed API requests, unauthorized endpoint access |
+| **Cookie Inspection** | DevTools used to verify `HttpOnly`, `Secure`, `SameSite=Strict` JWT flags |
+| **WebSocket Monitoring** | Network tab observed before and after logout to detect unclosed socket |
+| **Database Verification** | MongoDB Compass used to confirm Bcrypt hashing and duplicate email records |
+| **XSS Injection** | Script payloads tested in chat input and signup name fields |
+| **Multi-Session Testing** | Chrome + Edge used simultaneously for real-time presence verification |
+| **API Testing** | All 8 endpoints tested via Postman — status codes, auth guards, payload validation |
 
 ---
 
-## Traceability Flow
+## 🔍 Scope — What Was Tested
 
-Every test case traces back to a documented requirement. No test exists without a reason. No requirement goes untested.
+| Area | Coverage |
+| :--- | :--- |
+| 🔐 **Authentication** | Signup (boundary values), Login, Logout, JWT lifecycle, session restore, route protection |
+| 💬 **Messaging** | Text and image sending, chat history loading, payload size limits, message consistency |
+| ⚡ **Real-Time (Socket.io)** | Live message delivery, online/offline presence broadcast, socket closure on logout |
+| 🛡️ **Security** | XSS injection, JWT reuse after logout, duplicate email bypass, sender identity verification |
+| 🔌 **API Validation** | Auth middleware enforcement, 401/400/413 error handling, malformed request rejection |
+| 🪟 **Session Handling** | Multi-tab session sync, persistence after full browser restart |
+
+---
+
+## 🔗 Traceability
+
+Every test case connects back to a documented requirement. Every defect connects back to a test case.
 
 ```
 REQ  ──►  TS  ──►  TC  ──►  BUG
 (What)  (Behavior) (Steps) (Finding)
 ```
 
-**Example chain:**
+**Real example from this project:**
 ```
-REQ-AUTH-07  ──►  TS-AUTH-02  ──►  TC-AUTH-04  ──►  BUG-001
-Duplicate email    Registration     Case-variant      Two accounts
-must be rejected   must fail        email test        created in DB
+REQ-AUTH-07        ──►  TS-AUTH-02       ──►  TC-AUTH-04          ──►  BUG-001
+Duplicate email         Registration          Case-variant               Two accounts
+must be rejected        must fail             email test                 created in DB
 ```
 
-→ Full matrix in [`05-rtm/rtm.md`](05-rtm/rtm.md)
+→ Full traceability map: [`05-rtm/rtm.md`](05-rtm/rtm.md)
 
 ---
 
-## API Coverage
+## 📁 Repository Structure
 
-| Endpoint | Method | Auth | Covered By |
-| :--- | :--- | :--- | :--- |
-| `/auth/signup` | POST | No | TC-AUTH-01, 02, 03, 04 |
-| `/auth/login` | POST | No | TC-AUTH-05, 07 |
-| `/auth/logout` | POST | No | TC-AUTH-09 |
-| `/auth/check` | GET | ✅ Yes | TC-AUTH-08, TC-SESSION-11 |
-| `/auth/update-profile` | PUT | ✅ Yes | TC-PRF-01, 02 |
-| `/messages/users` | GET | ✅ Yes | TC-MSG-01, TC-API-10 |
-| `/messages/:id` | GET | ✅ Yes | TC-MSG-02 |
-| `/messages/send/:id` | POST | ✅ Yes | TC-MSG-03, 04, 05, 06, TC-API-12 |
+```
+chat-app-manual-testing/
+│
+├── 📄 README.md
+├── 📁 01-requirements/
+│   └── requirements.md       ← 21 functional and technical requirements
+├── 📁 02-test-plan/
+│   └── test-plan.md          ← Strategy, scope, risks, environment, entry/exit criteria
+├── 📁 03-test-design/
+│   ├── test-scenarios.md     ← 26 high-level test scenarios
+│   ├── test-cases.md         ← 29 detailed test cases with execution status
+│   └── api-inventory.md      ← 8 API endpoints mapped to test cases
+├── 📁 04-defects/
+│   └── defect-log.md         ← 4 defects with reproduction steps, evidence, fix notes
+├── 📁 05-rtm/
+│   └── rtm.md                ← REQ → TS → TC → BUG traceability matrix
+└── 📁 evidence/
+    ├── BUG-001/              ← MongoDB screenshot: duplicate email records
+    ├── BUG-002/              ← Recording: JWT reuse after logout
+    ├── BUG-003/              ← Screenshot: image send failure
+    └── BUG-004/              ← Before/after screenshots: zombie WebSocket
+```
 
 ---
 
-## Key Testing Techniques Used
+## 📌 Project Overview
 
-- **Boundary Value Analysis** — Password length (5 chars fail · 6 chars pass)
-- **Negative Testing** — Wrong passwords, malformed requests, unauthorized API calls
-- **Exploratory Testing** — Discovered BUG-002 (JWT reuse) and BUG-004 (zombie socket) without predefined scripts
-- **Cookie Inspection** — DevTools used to verify `HttpOnly`, `Secure`, `SameSite=Strict` flags
-- **WebSocket Monitoring** — Network tab used to observe real-time socket lifecycle
-- **Database Verification** — MongoDB Compass used to confirm password hashing and duplicate records
-- **XSS Injection** — Script payloads tested in message input and signup name fields
-- **Multi-Session Testing** — Chrome + Edge used simultaneously for real-time presence verification
+| Field | Detail |
+| :--- | :--- |
+| **Application** | Fullstack Chat App — MERN + Socket.io |
+| **Source** | [github.com/burakorkmez/fullstack-chat-app](https://github.com/burakorkmez/fullstack-chat-app) |
+| **Tester** | Alex (Swarup Padhy) |
+| **Environment** | Windows 11 · Chrome · Node.js (Local) · MongoDB |
+| **Tools** | Postman · Chrome DevTools · MongoDB Compass · Firefox |
