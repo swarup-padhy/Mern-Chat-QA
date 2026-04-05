@@ -1,85 +1,143 @@
 <div align="center">
+# Chat Application — Manual Testing Project
 
-# Real-Time Chat Application — Manual Testing
+> A structured manual testing engagement covering core functional, security, and real-time requirements of a MERN chat application.
 
-### *Black Box QA Audit — Functional · UI *
+---
 
-<br/>
-
-![Testing Type](https://img.shields.io/badge/Testing-Manual%20Black%20Box-4A90D9?style=for-the-badge&logo=testcafe&logoColor=white)
-![Scope](https://img.shields.io/badge/Scope-Functional%20%7C%20UI%20%7C%20Resilience-8E44AD?style=for-the-badge&logoColor=white)
-![Status](https://img.shields.io/badge/Status-RC1%20Complete-2ECC71?style=for-the-badge&logo=checkmarx&logoColor=white)
-
-<br/>
-
-**QA Engineer:** Swarup Padhy &nbsp;|&nbsp; **Application Under Test:** [Fullstack Chat App](https://github.com/burakorkmez/fullstack-chat-app) by [Burak Orkmez](https://github.com/burakorkmez)
-
-</div>
+![Test Cases](https://img.shields.io/badge/Test%20Cases-29-brightgreen?style=flat-square)
+![Passed](https://img.shields.io/badge/Passed-25-success?style=flat-square)
+![Failed](https://img.shields.io/badge/Failed-4-critical?style=flat-square)
+![Defects](https://img.shields.io/badge/Defects-4%20Open-red?style=flat-square)
+![Coverage](https://img.shields.io/badge/Requirement%20Coverage-100%25-blue?style=flat-square)
+![Status](https://img.shields.io/badge/Cycle%20Status-Complete-blueviolet?style=flat-square)
 
 ---
 
 ## Project Overview
 
-This repository contains all **Manual Testing artifacts** for a full-stack Real-Time Chat Application. The objective is to demonstrate a structured QA process — covering test planning, scenario design, test case execution, and defect reporting across functional, UI, and resilience dimensions.
-
-**Testing Scope:** Black Box Testing · Functional Testing · UI Validation · Resilience & Edge Cases
-
----
-
-## QA Artifacts
-
-| Artifact | Description |
-|---|---|
-| [TEST_PLAN.md](./TEST_PLAN.md) | High-level strategy, scope, environment, and pass/fail criteria |
-| [01_SCENARIOS.md](./01_SCENARIOS.md) | Functional breakdown of user flows and test scenarios |
-| [02_TEST_CASES.md](./02_TEST_CASES.md) | Detailed test steps with execution status (Pass/Fail) |
-| [03_BUG_REPORTS.md](./03_BUG_REPORTS.md) | Central dashboard for tracking all identified defects |
-| [Bug-Reports/](./Bug-Reports/) | Individual detailed bug reports for each reported issue |
+| Field | Detail |
+| :--- | :--- |
+| **Application** | Fullstack Chat App (MERN Stack + Socket.io) |
+| **Source Code** | [github.com/burakorkmez/fullstack-chat-app](https://github.com/burakorkmez/fullstack-chat-app) |
+| **Testing Type** | Manual — Functional, API, Security, Real-Time |
+| **Tester** | Swarup Padhy |
+| **Environment** | Windows 11 · Chrome · Node.js (Local) · MongoDB |
+| **Tools Used** | Postman · Chrome DevTools · MongoDB Compass · Firefox |
 
 ---
 
-## Testing Highlights
+## What Was Tested
 
-| Area | Detail |
-|---|---|
-| **Methodology** | Manual Functional Testing |
-| **Key Modules** | Authentication · Real-Time Messaging · Profile Management |
-| **Tools** | Chrome DevTools (Network Throttling, Console Logs) · Multiple Browser Sessions |
-| **Test Cycle** | Release Candidate 1 — Testing Complete |
+| Area | Description |
+| :--- | :--- |
+| 🔐 **Authentication** | Signup, Login, Logout, JWT cookie lifecycle, session restore, route protection |
+| 💬 **Messaging** | Text and image sending, chat history loading, message consistency |
+| ⚡ **Real-Time (Socket.io)** | Live message delivery, online/offline presence, socket lifecycle on logout |
+| 🛡️ **Security** | XSS injection, JWT token reuse after logout, duplicate email bypass |
+| 🔌 **API Validation** | Status codes, auth middleware enforcement, malformed request handling |
+| 🪟 **Session Handling** | Multi-tab sync, session persistence after full browser restart |
 
 ---
 
-## How to Run Locally (For Verification)
+## Defects Discovered
 
-To verify reported bugs or execute test cases yourself:
+| Bug ID | Title | Severity | Requirement | Status |
+| :--- | :--- | :--- | :--- | :--- |
+| [BUG-001](04-defects/defect-log.md) | Case-variant emails bypass duplicate account check | 🔴 High | REQ-AUTH-07 | Open |
+| [BUG-002](04-defects/defect-log.md) | JWT token not invalidated on server after logout | 🔴 Critical | REQ-AUTH-05 | Open |
+| [BUG-003](04-defects/defect-log.md) | Image messages fail to send in chat | 🔴 High | REQ-MSG-03 | Open |
+| [BUG-004](04-defects/defect-log.md) | WebSocket stays open after logout (Zombie Connection) | 🔴 High | REQ-TECH-02 | Open |
 
-### Clone the Application
-```bash
-git clone https://github.com/burakorkmez/fullstack-chat-app.git
-cd fullstack-chat-app
+---
+
+## Test Execution Summary
+
+| Status | Count | Coverage |
+| :--- | :---: | :--- |
+| ✅ Passed | 25 | ████████████████████░░░ 86% |
+| ❌ Failed | 4 | ██░░░░░░░░░░░░░░░░░░░░░ 14% |
+| **Total** | **29** | **100% Executed** |
+
+---
+
+## Repository Structure
+
+```
+chat-app-manual-testing/
+│
+├── README.md
+│
+├── 📁 01-requirements/
+│   └── requirements.md          ← What the system must do (21 requirements)
+│
+├── 📁 02-test-plan/
+│   └── test-plan.md             ← Strategy, scope, risks, environment
+│
+├── 📁 03-test-design/
+│   ├── test-scenarios.md        ← 26 high-level test scenarios
+│   ├── test-cases.md            ← 29 detailed test cases with execution status
+│   └── api-inventory.md         ← All 8 API endpoints mapped to test cases
+│
+├── 📁 04-defects/
+│   └── defect-log.md            ← All 4 defects with steps, evidence, fix notes
+│
+├── 📁 05-rtm/
+│   └── rtm.md                   ← Full REQ → TS → TC → BUG traceability map
+│
+└── 📁 evidence/
+    ├── BUG-001/                  ← MongoDB screenshot: duplicate email records
+    ├── BUG-002/                  ← Session recording: JWT reuse after logout
+    ├── BUG-003/                  ← Screenshot: image send failure in chat
+    └── BUG-004/                  ← Before/After screenshots: zombie WebSocket
 ```
 
-### Start the Backend
-```bash
-npm run start   # Backend → http://localhost:5000
+---
+
+## Traceability Flow
+
+Every test case traces back to a documented requirement. No test exists without a reason. No requirement goes untested.
+
+```
+REQ  ──►  TS  ──►  TC  ──►  BUG
+(What)  (Behavior) (Steps) (Finding)
 ```
 
-### Start the Frontend
-```bash
-cd frontend
-npm run dev     # Frontend → http://localhost:5173
+**Example chain:**
 ```
+REQ-AUTH-07  ──►  TS-AUTH-02  ──►  TC-AUTH-04  ──►  BUG-001
+Duplicate email    Registration     Case-variant      Two accounts
+must be rejected   must fail        email test        created in DB
+```
+
+→ Full matrix in [`05-rtm/rtm.md`](05-rtm/rtm.md)
 
 ---
 
-<div align="center">
+## API Coverage
 
-### Summary
+| Endpoint | Method | Auth | Covered By |
+| :--- | :--- | :--- | :--- |
+| `/auth/signup` | POST | No | TC-AUTH-01, 02, 03, 04 |
+| `/auth/login` | POST | No | TC-AUTH-05, 07 |
+| `/auth/logout` | POST | No | TC-AUTH-09 |
+| `/auth/check` | GET | ✅ Yes | TC-AUTH-08, TC-SESSION-11 |
+| `/auth/update-profile` | PUT | ✅ Yes | TC-PRF-01, 02 |
+| `/messages/users` | GET | ✅ Yes | TC-MSG-01, TC-API-10 |
+| `/messages/:id` | GET | ✅ Yes | TC-MSG-02 |
+| `/messages/send/:id` | POST | ✅ Yes | TC-MSG-03, 04, 05, 06, TC-API-12 |
 
-This audit demonstrates practical application of **manual QA processes** — from structured test planning through to defect lifecycle management across a real-time, full-stack application.
+---
 
-<br/>
+## Key Testing Techniques Used
 
-*Tested with 🔬 Chrome DevTools · 🖥️ Multi-Session Browser Testing · 📋 Manual Execution*
+- **Boundary Value Analysis** — Password length (5 chars fail · 6 chars pass)
+- **Negative Testing** — Wrong passwords, malformed requests, unauthorized API calls
+- **Exploratory Testing** — Discovered BUG-002 (JWT reuse) and BUG-004 (zombie socket) without predefined scripts
+- **Cookie Inspection** — DevTools used to verify `HttpOnly`, `Secure`, `SameSite=Strict` flags
+- **WebSocket Monitoring** — Network tab used to observe real-time socket lifecycle
+- **Database Verification** — MongoDB Compass used to confirm password hashing and duplicate records
+- **XSS Injection** — Script payloads tested in message input and signup name fields
+- **Multi-Session Testing** — Chrome + Edge used simultaneously for real-time presence verification
 
 </div>
