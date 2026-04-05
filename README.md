@@ -1,6 +1,6 @@
 # 🧪 Chat Application — Manual Testing Project
 
-> A structured manual testing engagement covering functional, security, API, and real-time requirements of a fullstack MERN chat application. **4 real defects discovered — including a Critical security vulnerability.**
+> A structured manual testing engagement covering core functional, security, API, and real-time requirements of a fullstack MERN chat application. **4 real defects discovered — including a Critical security vulnerability.**
 
 ---
 
