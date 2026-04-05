@@ -1,4 +1,3 @@
-<div align="center">
 # Chat Application — Manual Testing Project
 
 > A structured manual testing engagement covering core functional, security, and real-time requirements of a MERN chat application.
@@ -139,5 +138,3 @@ must be rejected   must fail        email test        created in DB
 - **Database Verification** — MongoDB Compass used to confirm password hashing and duplicate records
 - **XSS Injection** — Script payloads tested in message input and signup name fields
 - **Multi-Session Testing** — Chrome + Edge used simultaneously for real-time presence verification
-
-</div>
