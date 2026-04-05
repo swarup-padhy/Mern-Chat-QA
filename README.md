@@ -118,6 +118,6 @@ chat-app-manual-testing/
 | :--- | :--- |
 | **Application** | Fullstack Chat App — MERN + Socket.io |
 | **Source** | [github.com/burakorkmez/fullstack-chat-app](https://github.com/burakorkmez/fullstack-chat-app) |
-| **Tester** | Alex (Swarup Padhy) |
+| **Tester** | Swarup Padhy |
 | **Environment** | Windows 11 · Chrome · Node.js (Local) · MongoDB |
 | **Tools** | Postman · Chrome DevTools · MongoDB Compass · Firefox |
