@@ -20,7 +20,7 @@
 | Bug ID | Title | Severity | How It Was Found |
 | :--- | :--- | :--- | :--- |
 | [BUG-001](04-defects/defect-log.md) | Case-variant emails bypass duplicate account check | 🔴 High | Structured test — attempted registration with `USER@test.com` after `user@test.com` existed |
-| [BUG-002](04-defects/defect-log.md) | JWT token remains valid after logout — session not invalidated server-side | 🔴 Critical | Exploratory — copied JWT before logout, re-inserted it after, regained full Dashboard access |
+| [BUG-002](04-defects/defect-log.md) | JWT token remains valid after logout — session not invalidated server-side | 🔴 Critical  | Exploratory — copied JWT before logout, re-inserted it after, regained full Dashboard access |
 | [BUG-003](04-defects/defect-log.md) | Image messages fail to send in chat | 🔴 High | Structured test — image attachment sent via messaging flow, server returned error |
 | [BUG-004](04-defects/defect-log.md) | WebSocket connection stays open after logout (Zombie Connection) | 🔴 High | Exploratory — monitored Network tab in DevTools before and after logout |
 
